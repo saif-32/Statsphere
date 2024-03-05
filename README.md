@@ -14,9 +14,9 @@ StatSphere is an innovative sports analytics platform that leverages historical 
 ## Technologies Used
 
 - Frontend: HTML, CSS, JavaScript, React
-- Backend: Python, Flask/Django (optional)
-- Database: MySQL, PostgreSQL, MongoDB (optional)
-- APIs: NBA API (for live data), [Other APIs if applicable]
+- Backend: Python
+- Database: MySQL, PostgreSQL, MongoDB
+- APIs: NBA API (for live data),
 - Deployment: [Deployment platform or hosting service]
 
 ## Installation
