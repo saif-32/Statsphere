@@ -1,6 +1,6 @@
 import express from 'express'
 import jwt from 'jsonwebtoken' 
-import bcypt from 'byrypt'
+import bcrypt from 'bcrypt'  
 import { UserModel } from "../models/Users.js";
 
 const router = express.Router();
@@ -15,4 +15,4 @@ router.post("/register", async ( req, res) => {
 
 router.post("login")
 
-express { router as userRouter };
+export { router as userRouter };
