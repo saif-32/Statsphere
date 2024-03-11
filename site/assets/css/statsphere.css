@@ -1,0 +1,5 @@
+div .col-home {
+	overflow-y: scroll;
+	max-height: 700px;
+	padding: 5px;
+}
