@@ -9,7 +9,7 @@ export const Footer = () => {
         <div className="col-lg-6 col-md-6">
           <div className="footer-box about-widget">
             <h2 className="widget-title">About Us</h2>
-            <p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
+            <p>Statsphere is an innovative sports analytics platform that leverages historical data to provide you with insights and fosters a dynamic sports community.</p>
           </div>
         </div>
         <div className="col-lg-6 col-md-6">

@@ -15,35 +15,26 @@ export const Login = () => {
   return (
     <div>
       <Header />
-      <div className="breadcrumb-section breadcrumb-bg">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-8 offset-lg-2 text-center">
-              <div className="breadcrumb-text">
-                <p>under construction</p>
-                <h1>Account</h1>
-              </div>
-              <div className="login-form">
-                <form onSubmit={handleLogin}>
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                  />
-                  <button type="submit">Login</button>
-                </form>
-              </div>
-            </div>
-          </div>
+      <div className="login-container">
+        <div className="login-form">
+          <h1>Login to Your Account</h1>
+          <form onSubmit={handleLogin}>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button type="submit">Login</button>
+          </form>
         </div>
       </div>
       <Footer />
