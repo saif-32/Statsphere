@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import axios from "axios";
 
 export const Register = () => {
   const [firstName, setFirstName] = useState('');
@@ -9,10 +10,22 @@ export const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    // Handle registration logic here
-    console.log('Register button clicked');
+
+    try {
+      await axios.post("http://localhost:3001/auth/register", {
+        firstName,
+        lastName,
+        email,
+        username,
+        password
+      });
+      
+    } catch (err) {
+      console.error(err)
+    }
+
   };
 
   return (

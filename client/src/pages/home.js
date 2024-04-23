@@ -1,36 +1,80 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
 import Header from '../components/header';
 import Footer from '../components/footer';
+import axios from 'axios';
+
 
 export const Home = () => {
-    return (
-        <div>
-            <Header />
-<div>
-  {/* hero area */}
-  <div className="breadcrumb-section breadcrumb-bg">
-    <div className="container">
-      <div className="row">
-        <div className="col-lg-8 offset-lg-2 text-center">
-          <div className="breadcrumb-text">
-            <p>under construction</p>
-            <h1>Trending</h1>
+  const [gameData, setGameData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://api-nba-v1.p.rapidapi.com/games', {
+          params: { date: '2022-02-12' },
+          headers: {
+            'X-RapidAPI-Key': '-', // Inside the discord
+            'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
+          }
+        });
+        setGameData(response.data.response);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return (
+    <div>
+      <Header />
+      <div>
+        {/* hero area */}
+        <div className="breadcrumb-section breadcrumb-bg">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8 offset-lg-2 text-center">
+                <div className="breadcrumb-text">
+                  <p>under construction</p>
+                  <h1>Trending</h1>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
+        {/* end hero area */}
+        {/* main columns */}
+        <div className="row" style={{ padding: 40 }}>
+          <div className="col-4 col-lg-4 text-center">
+            <div className="section-title">
+              <h3>Latest Scores</h3>
+              <p>From your favorite teams</p>
+            </div>
+            <div className="col-home">
+              {gameData.map(game => (
+                <div className="single-latest-news" key={game.id}>
+                  <div className="news-text-box">
+                    <p className="blog-meta">
+                      <div className="score-box">
+                        <div className="team">
+                          <img src={game.teams.visitors.logo} alt={game.teams.visitors.name} />
+                        </div>
+                        <div className="score-separator">{game.scores.visitors.points} - {game.scores.home.points}</div>
+                        <div className="team">
+                          <img src={game.teams.home.logo} alt={game.teams.home.name} />
+                        </div>
+                      </div>
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
 
 
-  {/* end hero area */}
-  {/* main columns */}
-  <div className="row" style={{padding: 40}}>
-    <div className="col-4 col-lg-4 text-center">
-      <div className="section-title">
-        <h3>Latest Scores</h3>
-        <p>From your favorite teams</p>
-      </div>
-    </div>
+
     <div className="col-4 col-lg-4 text-center">
       <div className="section-title">
         <h3>All Posts</h3>
@@ -84,6 +128,10 @@ export const Home = () => {
         </div>
       </div>
     </div>
+
+
+
+
     <div className="col-4 col-lg-4 text-center">
       <div className="section-title">
         <h3>Trending <span className="orange-text">Right Now</span></h3>

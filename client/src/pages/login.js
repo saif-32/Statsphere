@@ -1,15 +1,37 @@
 import React, { useState } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import axios from 'axios';
+import { useCookies } from 'react-cookie';
+import { navigate, useNavigate } from 'react-router-dom'
 
 export const Login = () => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = (e) => {
+  const [_, setCookies] = useCookies(["access_token"])
+
+  const navigate = useNavigate()
+
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log('Login button clicked');
+
+
+
+    try {
+      const response = await axios.post("http://localhost:3001/auth/login", {
+        username,
+        password
+      });
+
+      setCookies('access_token', response.data.token)
+      window.localStorage.setItem("userID", response.data.userID)
+      navigate('/')
+      
+    } catch (err) {
+      console.error(err)
+    }
+
   };
 
   return (
@@ -20,10 +42,10 @@ export const Login = () => {
           <h1>Login to Your Account</h1>
           <form onSubmit={handleLogin}>
             <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               required
             />
             <input

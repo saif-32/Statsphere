@@ -89,5 +89,17 @@ div .col-home {
   .login-form button:hover {
 	background-color: #e36e0e;
   }
+
+  .score-box {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  }
+  
+  .team img {
+	width: 50px; /* Adjust image width as needed */
+	height: auto; /* Maintain aspect ratio */
+  }
+  
   
   
