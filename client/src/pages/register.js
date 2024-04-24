@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import Header from '../components/header';
 import Footer from '../components/footer';
-import axios from "axios";
+import axios from 'axios';
 
 export const Register = () => {
   const [firstName, setFirstName] = useState('');
@@ -9,23 +10,30 @@ export const Register = () => {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
   const handleRegister = async (e) => {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:3001/auth/register", {
+      await axios.post('http://localhost:3001/auth/register', {
         firstName,
         lastName,
         email,
         username,
-        password
+        password,
       });
-      
+      // Set registration success message
+      setRegistrationSuccess(true);
+      // Clear input fields after successful registration
+      setFirstName('');
+      setLastName('');
+      setEmail('');
+      setUsername('');
+      setPassword('');
     } catch (err) {
-      console.error(err)
+      console.error(err);
     }
-
   };
 
   return (
@@ -34,6 +42,9 @@ export const Register = () => {
       <div className="register-container">
         <div className="register-form">
           <h1>Create Your Account</h1>
+          {registrationSuccess && (
+            <div className="success-message">Registration completed! Now you can <Link to="/login">login</Link>.</div>
+          )}
           <form onSubmit={handleRegister}>
             <input
               type="text"
