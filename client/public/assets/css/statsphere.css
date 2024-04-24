@@ -100,6 +100,22 @@ div .col-home {
 	width: 50px; /* Adjust image width as needed */
 	height: auto; /* Maintain aspect ratio */
   }
+
+  .score-info {
+    text-align: center; /* To center align the date, score, and Home vs Visitor */
+}
+
+.score {
+    font-size: 1.2em; /* Adjust font size for the score */
+}
+
+.game-progress {
+	color: red;
+}
+
+.home-visitor {
+    font-size: 0.8em; /* Adjust font size for Home vs Visitor */
+}
   
   
   
