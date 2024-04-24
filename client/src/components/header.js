@@ -10,7 +10,7 @@ export const Header = () => {
           <div className="main-menu-wrap">
             {/* logo */}
             <div className="site-logo">
-              <a href="index.html">
+              <a href="/">
                 <img src="assets/img/logo.png" alt />
               </a>
             </div>

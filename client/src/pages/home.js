@@ -37,14 +37,15 @@ export const Home = () => {
             <div className="row">
               <div className="col-lg-8 offset-lg-2 text-center">
                 <div className="breadcrumb-text">
-                  <p>under construction</p>
-                  <h1>Trending</h1>
+                  <p>Live Scores</p>
+                  <h1>Stat Sphere</h1>
                 </div>
               </div>
             </div>
           </div>
         </div>
         {/* end hero area */}
+        
         {/* main columns */}
         <div className="row" style={{ padding: 40 }}>
           <div className="col-4 col-lg-4 text-center">
@@ -174,7 +175,7 @@ export const Home = () => {
             <p className="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.</p>
           </div>
         </div>
-        <a href="trending.html" className="boxed-btn">More</a>
+        <a href="/trending" className="boxed-btn">More</a>
       </div>
     </div>
   </div>
