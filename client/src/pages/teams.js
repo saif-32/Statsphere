@@ -31,77 +31,85 @@ export const Teams = () => {
                 <div className="col-4 col-lg-4 text-center" style={{height:'100vh'}}>
                   <p style={selectboxheading}>Choose your favorite teams:</p>
                   <select className="selectpicker" multiple data-live-search="true">
-                    <option>Mustard</option>
-                    <option>Ketchup</option>
-                    <option>Relish</option>
+                    {/* options gets "selected" class when selected */}
+                    <option>team 1</option> 
+                    <option>team 2</option>
+                    <option>team 3</option>
                   </select>
                 </div>
-		          <div className="col-8">
-			          <div className="row">
-                  <div className="single-latest-news" style={{width:'50%'}}>
-                    <div className="news-text-box">
-                      <p className="blog-meta">
-                        <div className="score-box">
-                          <div className="team">
-                            <img src="assets/img/favicon.png" alt="team name"/>
+		            <div className="col-8">
+			            <div className="row">
+                    <div className="single-latest-news" style={{width:'50%'}}>
+                      <div className="news-text-box">
+                        <p className="blog-meta">
+                          <div className="score-box">
+                            <div className="team">
+                              <img src="assets/img/favicon.png" alt="team name"/>
+                            </div>
+                            <div>
+                              <p>## - ##</p>
+                            </div>
+                            <div className="team">
+                              <img src="assets/img/favicon.png" alt="team name"/>
+                            </div>
                           </div>
-                          <div>## - ##</div>
-                          <div className="team">
-                            <img src="assets/img/favicon.png" alt="team name"/>
+                        </p>
+                      </div>
+                    </div>
+                    <div className="single-latest-news" style={{width:'50%'}}>
+                      <div className="news-text-box">
+                        <p className="blog-meta">
+                          <div className="score-box">
+                            <div className="team">
+                              <img src="assets/img/favicon.png" alt="team name"/>
+                            </div>
+                            <div>
+                              <p>## - ##</p>
+                            </div>
+                            <div className="team">
+                              <img src="assets/img/favicon.png" alt="team name"/>
+                            </div>
                           </div>
-                        </div>
-                      </p>
+                        </p>
+                      </div>
+                    </div>
+                    <div className="single-latest-news" style={{width:'50%'}}>
+                      <div className="news-text-box">
+                        <p className="blog-meta">
+                          <div className="score-box">
+                            <div className="team">
+                              <img src="assets/img/favicon.png" alt="team name"/>
+                            </div>
+                            <div>
+                              <p>## - ##</p>
+                            </div>
+                            <div className="team">
+                              <img src="assets/img/favicon.png" alt="team name"/>
+                            </div>
+                          </div>
+                        </p>
+                      </div>
+                    </div>
+                    <div className="single-latest-news" style={{width:'50%'}}>
+                      <div className="news-text-box">
+                        <p className="blog-meta">
+                          <div className="score-box">
+                            <div className="team">
+                              <img src="assets/img/favicon.png" alt="team name"/>
+                            </div>
+                            <div>
+                              <p>## - ##</p>
+                            </div>
+                            <div className="team">
+                              <img src="assets/img/favicon.png" alt="team name"/>
+                            </div>
+                          </div>
+                        </p>
+                      </div>
                     </div>
                   </div>
-                  <div className="single-latest-news" style={{width:'50%'}}>
-                    <div className="news-text-box">
-                      <p className="blog-meta">
-                        <div className="score-box">
-                          <div className="team">
-                            <img src="assets/img/favicon.png" alt="team name"/>
-                          </div>
-                          <div>## - ##</div>
-                          <div className="team">
-                            <img src="assets/img/favicon.png" alt="team name"/>
-                          </div>
-                        </div>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="single-latest-news" style={{width:'50%'}}>
-                    <div className="news-text-box">
-                      <p className="blog-meta">
-                        <div className="score-box">
-                          <div className="team">
-                            <img src="assets/img/favicon.png" alt="team name"/>
-                          </div>
-                          <div>## - ##</div>
-                          <div className="team">
-                            <img src="assets/img/favicon.png" alt="team name"/>
-                          </div>
-                        </div>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="single-latest-news" style={{width:'50%'}}>
-                    <div className="news-text-box">
-                      <p className="blog-meta">
-                        <div className="score-box">
-                          <div className="team">
-                            <img src="assets/img/favicon.png" alt="team name"/>
-                          </div>
-                          <div>## - ##</div>
-                          <div className="team">
-                            <img src="assets/img/favicon.png" alt="team name"/>
-                          </div>
-                        </div>
-                      </p>
-                    </div>
-                  </div>
-			</div>
-		</div>
-	</div>
-
+                </div>
+              </div>
             <Footer />
         </div>
     );
