@@ -127,6 +127,61 @@ div .col-home {
 .home-visitor {
     font-size: 0.8em; /* Adjust font size for Home vs Visitor */
 }
+
+.logout-button {
+	border: none;
+	background-color: transparent;
+	color: inherit;
+	cursor: pointer;
+	padding: 0;
+  }
+  
+  .logout-button:hover {
+	color: orange;
+  }
+
+  nav.main-menu ul ul.sub-menu button {
+	display: block;
+	text-align: left;
+  }
+  
+  nav.main-menu ul ul.sub-menu li button {
+	color: #555;
+	font-weight: 600;
+	padding: 7px 10px;
+	font-size: 13px;
+  }
+
+  ul.sub-menu button {
+	-webkit-transition: 0.3s;
+	-o-transition: 0.3s;
+	transition: 0.3s;
+  }
+
+  ul.sub-menu li:hover button {
+	color: #F28123 !important;
+  }
+
+  nav.main-menu ul ul.sub-menu li button {
+	display: block;
+	text-align: left;
+  }
+
+  .error-message p{
+	text-align: center;
+	color: red !important;
+  }
+
+  .register-text {
+	text-align: center;
+	padding-top: 8px;
+  }
+  
+  .register-link {
+	color: #fd7e14;
+  }
+  
+  
   
   
   

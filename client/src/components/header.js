@@ -21,7 +21,7 @@ export const Header = () => {
               <div className="main-menu-wrap">
                 {/* logo */}
                 <div className="site-logo">
-                  <a href="index.html">
+                  <a href="/">
                     <img src="assets/img/logo.png" alt />
                   </a>
                 </div>
@@ -46,9 +46,21 @@ export const Header = () => {
                         {!cookies.access_token ? (
                           <Link className="shopping-cart" to="/login">
                             <i className="fas fa-user" />
+                            <ul className="sub-menu">
+                              <li><a><Link to="/login">Login</Link></a></li>
+                              <li><a><Link to="/register">Register</Link></a></li>
+                            </ul>
                           </Link>
                         ) : (
-                          <button className="logout-button" onClick={logout}>Logout</button>
+                          <Link className="shopping-cart" to="/profile">
+                          <i className="fas fa-user" />
+                          <ul className="sub-menu">
+                            <li><a><Link to="/profile">Profile</Link></a></li>
+                            <li><a><button className="logout-button" onClick={logout}>Logout</button></a></li>
+                          </ul>
+                          </Link>
+                          
+                          // <button className="logout-button" onClick={logout}>Logout</button>
                         )}
                         <a className="mobile-hide search-bar-icon" href="#"><i className="fas fa-search" /></a>
                       </div>

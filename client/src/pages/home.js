@@ -7,6 +7,23 @@ import axios from 'axios';
 
 export const Home = () => {
 
+  const [username, setUsername] = useState('');
+
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      try {
+        const userID = window.localStorage.getItem("userID");
+        const response = await axios.post('http://localhost:3001/auth/getUserInfo', { userID });
+        setUsername(response.data.user.username);
+        console.log(response.data)
+      } catch (error) {
+        console.error('Error fetching user info:', error);
+      }
+    };
+
+    fetchUserInfo();
+  }, []);
+
   const formatDate = (dateString) => {
     const options = { month: 'long', day: 'numeric', year: 'numeric' };
     return new Date(dateString).toLocaleDateString('en-US', options);
@@ -36,6 +53,8 @@ export const Home = () => {
     fetchData();
   }, []);
 
+  const greeting = username ? `Welcome ${username}!` : 'Welcome to Statsphere.';
+
   return (
     <div>
       <Header />
@@ -47,7 +66,7 @@ export const Home = () => {
               <div className="col-lg-8 offset-lg-2 text-center">
                 <div className="breadcrumb-text">
                   <p>stat sphere</p>
-                  <h1>Welcome User!</h1>
+                  <h1>{greeting}</h1>
                   <h2>Check out what's happening today!</h2>
                 </div>
               </div>

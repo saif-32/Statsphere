@@ -7,6 +7,7 @@ import Header from '../components/header'; // Import the Header component
 export const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const [isRegistering, setIsRegistering] = useState(false);
   const [_, setCookies] = useCookies(['access_token']);
   const navigate = useNavigate();
@@ -23,12 +24,13 @@ export const Login = () => {
       setCookies('access_token', result.data.token);
       window.localStorage.setItem('userID', result.data.userID);
 
-      // Show pop-up or alert message upon successful login
-      alert('Login successful!'); // You can customize this message or use a pop-up library
-
       navigate('/');
     } catch (error) {
-      console.error(error);
+      if (error.response && error.response.data) {
+        setError(error.response.data.message);
+      } else {
+        setError('An error occurred. Please try again later.');
+      }
     }
   };
 
@@ -38,6 +40,7 @@ export const Login = () => {
       <div className="login-container">
         <div className="login-form">
           <h1>{isRegistering ? 'Register' : 'Login'} to Your Account</h1>
+          <div className="error-message">{error && <p>{error}</p>}</div>
           <form onSubmit={handleLogin}>
             <div className="form-group">
               <label htmlFor="username">Username:</label>
@@ -62,13 +65,15 @@ export const Login = () => {
             <button type="submit">Login</button>
           </form>
           {!isRegistering && (
-            <p>
-              Don't have an account?{' '}
-              <Link to="/register">Register here</Link>
-            </p>
+            <p className="register-text">
+            Don't have an account?{' '}
+            <Link to="/register" className="register-link">Register here</Link>
+          </p>
           )}
         </div>
       </div>
     </div>
   );
 };
+
+export default Login;

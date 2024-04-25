@@ -42,7 +42,19 @@ router.post("/login", async (req, res) => {
   res.json({ token, userID: user._id });
 });
 
-export { router as userRouter };
+router.post("/getUserInfo", async (req, res) => {
+  const { userID } = req.body;
+
+  try {
+    const user = await UserModel.findById(userID);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    res.json({ user });
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
+});
 
 export const verifyToken = (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -57,3 +69,7 @@ export const verifyToken = (req, res, next) => {
     res.sendStatus(401);
   }
 };
+
+
+
+export { router as userRouter };
