@@ -1,4 +1,5 @@
 // src/components/Comment.js
+//hi
 
 function Comment({ text, createdBy, createdAt }) {
     const date = new Date(createdAt).toLocaleDateString("en-US");

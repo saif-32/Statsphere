@@ -1,4 +1,6 @@
 // src/components/CommentForm.js
+//hi
+
 import { useState } from 'react';
 
 function CommentForm({ postId, addComment }) {
