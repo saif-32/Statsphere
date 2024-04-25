@@ -98,7 +98,7 @@ export const Home = () => {
         const response = await axios.get('https://api-nba-v1.p.rapidapi.com/games', {
           params: { date: currentDate },
           headers: {
-            'X-RapidAPI-Key': '-', // Inside the discord
+            'X-RapidAPI-Key': '=', // Inside the discord
             'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
           }
         });

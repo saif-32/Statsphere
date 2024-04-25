@@ -97,48 +97,36 @@ export const Trending = () => {
                   </div>
                 </div>
                 <div className="col-12 text-center" style={{paddingTop: 10, paddingLeft: 250, paddingRight: 250}}>
-                {sortedPostsByLikes.map(post => (
-                <div className="single-latest-news" key={post._id}>
-                  <div className="news-text-box">
-                    <p className="blog-meta">
-                      <span className="author"><i className="fas fa-user" /> {post.username}</span>
-                      <span className="date">
-                        <i className="fas fa-calendar" /> 
-                        {new Date(post.date).toLocaleString('en-US', {
-                          month: 'long',
-                          day: 'numeric',
-                          year: 'numeric',
-                          hour: 'numeric',
-                          minute: '2-digit',
-                          hour12: true // Use 12-hour clock
-                        })}
-                      </span>
-                    </p>
-                    <p className="excerpt">{post.description}</p>
-                    <span className="likes" style={{ color: post.likes.includes(userID) ? 'red' : 'black' }} onClick={() => userID ? handleLike(post._id) : window.location.href='/login'}>
-                      <i className="fas fa-thumbs-up" /> {post.likes.length}
-                    </span>
-                    <span className="comments"><i className="fas fa-comment"></i> 5</span>
-                    {/* <span className="comments"><i className="fas fa-comment" /> {post.comments.length}</span> */}
-                  </div>
-                </div>
-              ))}
-
-                  
-                  <div className="single-latest-news">
+                  <div className='trending-posts'>
+                  {sortedPostsByLikes.map(post => (
+                  <div className="single-latest-news" key={post._id}>
                     <div className="news-text-box">
                       <p className="blog-meta">
-                        <span className="author"><i className="fas fa-user" /> Admin</span>
-                        <span className="date"><i className="fas fa-calendar" /> 27 December, 2019</span>
+                        <span className="author"><i className="fas fa-user" /> {post.username}</span>
+                        <span className="date">
+                          <i className="fas fa-calendar" /> 
+                          {new Date(post.date).toLocaleString('en-US', {
+                            month: 'long',
+                            day: 'numeric',
+                            year: 'numeric',
+                            hour: 'numeric',
+                            minute: '2-digit',
+                            hour12: true // Use 12-hour clock
+                          })}
+                        </span>
                       </p>
-                      <p className="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.</p>
+                      <p className="excerpt">{post.description}</p>
+                      <span className="likes" style={{ color: post.likes.includes(userID) ? 'red' : 'black' }} onClick={() => userID ? handleLike(post._id) : window.location.href='/login'}>
+                        <i className="fas fa-thumbs-up" /> {post.likes.length}
+                      </span>
+                      <span className="comments"><i className="fas fa-comment"></i> 5</span>
+                      {/* <span className="comments"><i className="fas fa-comment" /> {post.comments.length}</span> */}
                     </div>
                   </div>
-
-
+                ))}
+                  </div>
 
                 </div>
-                {/* end trending posts */}
               </div>
 
             <Footer />
