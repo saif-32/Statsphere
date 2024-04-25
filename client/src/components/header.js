@@ -52,7 +52,7 @@ export const Header = () => {
                             </ul>
                           </Link>
                         ) : (
-                          <Link className="shopping-cart" to="/profile">
+                          <Link className="shopping-cart" to="/" onClick={() => window.location.reload()}>
                           <i className="fas fa-user" />
                           <ul className="sub-menu">
                             <li><a><Link to="/profile">Profile</Link></a></li>

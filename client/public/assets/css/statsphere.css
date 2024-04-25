@@ -180,7 +180,27 @@ div .col-home {
   .register-link {
 	color: #fd7e14;
   }
+
+  .fa-thumbs-up {
+	float: right;
+  }
+
+  .fa-comment {
+	float: right;
+  }
   
+  .likes, .comments {
+    display: inline-flex;
+	float: right;
+    align-items: center; /* Center vertically */
+    margin-left: 10px; /* Adjust margin as needed */
+	margin-top: -10px;
+  }
+
+  .likes i,
+  .comments i {
+    margin-right: 5px; /* Adjust margin between icon and number */
+  }
   
   
   
