@@ -12,6 +12,11 @@ export const Home = () => {
   const [userID, setUserID] = useState('');
   const [posts, setPosts] = useState([]);
 
+  const colSubheading = {
+    textAlign: "center",
+    width: "inherit"
+  };
+
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
@@ -145,7 +150,7 @@ export const Home = () => {
           <div className="col-4 col-lg-4 text-center">
             <div className="section-title">
               <h3>Latest Scores</h3>
-              <p>From your favorite teams</p>
+              <p style={colSubheading}>From your favorite teams</p>
             </div>
 
 
@@ -207,7 +212,7 @@ export const Home = () => {
     <div className="col-4 col-lg-4 text-center">
       <div className="section-title">
         <h3>All Posts</h3>
-        <p>The newest posts available.</p>
+        <p style={colSubheading}>The newest posts available.</p>
       </div>
       <div className="col-home">
 
@@ -260,7 +265,7 @@ export const Home = () => {
     <div className="col-4 col-lg-4 text-center">
       <div className="section-title">
         <h3>Trending <span className="orange-text">Right Now</span></h3>
-        <p>See what everyone is talking about.</p>
+        <p style={colSubheading}>See what everyone is talking about.</p>
       </div>
       <div className="col-home">
       {sortedPostsByLikes.map(post => (
