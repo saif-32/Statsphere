@@ -80,9 +80,41 @@ router.post('/unlike/:postId', async (req, res) => {
       res.status(500).json({ message: 'Server error' });
     }
   });
+
+  // endpoint to add a comment to a post
+router.post('/:postId/comments', async (req, res) => {
+  try {
+    const { text, userID } = req.body; //send text of the comment and userID
+
+    // Find the post by ID
+    const post = await PostModel.findById(req.params.postId);
+
+    // Check if the post exists
+    if (!post) {
+      return res.status(404).json({ message: 'Post not found' });
+    }
+
+    // create comment object
+    const comment = {
+      text,
+      createdBy: userID,
+      createdAt: new Date(),
+    };
+
+    // add the comment to the posts comment array
+    post.comments.push(comment);
+
+    // saved with new comment
+    await post.save();
+
+    // send the updated post as a response
+    res.status(200).json(post);
+  } catch (error) {
+    console.error('Error adding comment:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
   
-
-
 
 export {router as postsRouter }
 

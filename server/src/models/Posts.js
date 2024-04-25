@@ -1,6 +1,22 @@
 import mongoose from "mongoose";
 
-const newPostSchema = mongoose.Schema({
+const commentSchema = new mongoose.Schema({
+  text: {
+    type: String,
+    required: true,
+  },
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  }
+});
+
+const newPostSchema = new mongoose.Schema({
   description: {
     type: String,
     required: true,
@@ -20,6 +36,7 @@ const newPostSchema = mongoose.Schema({
       ref: "User",
     }
   ],
+  comments: [commentSchema]
 });
 
 export const PostModel = mongoose.model("Posts", newPostSchema);
