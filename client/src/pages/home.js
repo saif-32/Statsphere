@@ -16,6 +16,15 @@ export const Home = () => {
     textAlign: "center",
     width: "inherit"
   };
+  const btnStyle = {
+    backgroundColor: "#F28123",
+    borderColor: "#F28123",
+    height: 50,
+    width: "auto",
+    position: "fixed",
+    bottom: 20,
+    right: 20
+  }
 
   useEffect(() => {
     const fetchUserInfo = async () => {
@@ -304,6 +313,36 @@ export const Home = () => {
           </div>
         </div>
         <a href="/trending" className="boxed-btn">More</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{/* button for create post */}
+<div>
+<button type="button" className="btn btn-primary" id="postBtn" data-toggle="modal" data-target="#postWindow" style={btnStyle}>
+  <b style={{fontSize:16}}>New Post </b><i className="fas fa-solid fa-plus"></i>
+</button>
+</div>
+{/* modal window for create post */}
+<div className="modal fade" id="postWindow">
+  <div className="modal-dialog modal-dialog-centered modal-lg vertical-align-center">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h4 className="modal-title">Create Post</h4>
+        <button type="button" className="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div className="modal-body">
+        <form id="postForm">
+          <div className="form-group">
+            <label htmlFor="post-text" className="col-form-label"><h6>Message:</h6></label>
+            <textarea className="form-control" id="post-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div className="modal-footer">
+        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" form="postForm" className="btn btn-primary" data-dismiss="modal" style={{backgroundColor:"#F28123",borderColor:"#F28123"}}>Submit</button>
       </div>
     </div>
   </div>
