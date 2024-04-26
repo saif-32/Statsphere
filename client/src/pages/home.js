@@ -321,7 +321,7 @@ export const Home = () => {
 {/* button for create post */}
 <div>
 <button type="button" className="btn btn-primary" id="postBtn" data-toggle="modal" data-target="#postWindow" style={btnStyle}>
-  <b style={{fontSize:16}}>New Post </b><i className="fas fa-solid fa-plus"></i>
+  <b style={{fontSize:16}}>New Post &nbsp;</b><i className="fas fa-solid fa-plus"></i>
 </button>
 </div>
 {/* modal window for create post */}
