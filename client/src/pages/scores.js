@@ -17,7 +17,7 @@ export const Scores = () => {
                     season: '2023',
                 },
                 headers: {
-                    'X-RapidAPI-Key': '=',
+                    'X-RapidAPI-Key': '#',
                     'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
                 }
             };

@@ -11,6 +11,7 @@ export const Home = () => {
   const [username, setUsername] = useState('');
   const [userID, setUserID] = useState('');
   const [posts, setPosts] = useState([]);
+  const navigate = useNavigate();
 
   const colSubheading = {
     textAlign: "center",
@@ -125,6 +126,34 @@ export const Home = () => {
 
     fetchData();
   }, []);
+
+  const handleCreatePost = () => {
+    if (userID) {
+      const postText = document.getElementById('post-text').value;
+      // Only proceed if there's some text in the post
+      if (postText.trim()) {
+        // User is signed in, proceed to create post
+        axios.post('http://localhost:3001/posts', {
+          description: postText,
+          date: new Date(),
+          userOwner: userID
+        })
+        .then(response => {
+          console.log('Post created successfully:', response.data);
+          setPosts([response.data, ...posts]);
+        })
+        .catch(error => {
+          console.error('Error creating post:', error);
+        });
+      } else {
+        // Notify the user to enter some text for the post
+        alert('Please enter some text for the post.');
+      }
+    } else {
+      // User is not signed in, redirect to login
+      navigate('/login');
+    }
+  };
 
   
 
@@ -320,7 +349,7 @@ export const Home = () => {
 
 {/* button for create post */}
 <div>
-<button type="button" className="btn btn-primary" id="postBtn" data-toggle="modal" data-target="#postWindow" style={btnStyle}>
+<button type="button" className="btn btn-primary" id="postBtn" data-toggle="modal" data-target="#postWindow" style={btnStyle} disabled={!userID}>
   <b style={{fontSize:16}}>New Post &nbsp;</b><i className="fas fa-solid fa-plus"></i>
 </button>
 </div>
@@ -342,7 +371,7 @@ export const Home = () => {
       </div>
       <div className="modal-footer">
         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" form="postForm" className="btn btn-primary" data-dismiss="modal" style={{backgroundColor:"#F28123",borderColor:"#F28123"}}>Submit</button>
+        <button type="submit" form="postForm" className="btn btn-primary" onClick={handleCreatePost} data-dismiss="modal" style={{backgroundColor:"#F28123",borderColor:"#F28123"}}>Submit</button>
       </div>
     </div>
   </div>
