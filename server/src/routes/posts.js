@@ -27,8 +27,7 @@ router.post("/", async(req, res) =>{
 
 router.post('/like/:postId', async (req, res) => {
     try {
-      const { userID } = req.body; // Assuming you're sending userID in the request body
-      console.log(userID)
+      const { userID } = req.body;
   
       const post = await PostModel.findById(req.params.postId);
   

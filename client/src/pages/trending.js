@@ -89,7 +89,7 @@ export const Trending = () => {
                     <div className="row">
                       <div className="col-lg-8 offset-lg-2 text-center">
                         <div className="breadcrumb-text">
-                          <p>under construction</p>
+                          <p>What everyone is talking about</p>
                           <h1>Trending</h1>
                         </div>
                       </div>

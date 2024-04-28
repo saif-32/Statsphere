@@ -5,8 +5,6 @@ import Footer from '../components/footer';
 
 export const Scores = () => {
     const [games, setGames] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -30,9 +28,7 @@ export const Scores = () => {
                 setGames(sortedGames);
             } catch (error) {
                 console.error('Error fetching games:', error);
-                setError(`Failed to fetch games: ${error.message}`);
             } finally {
-                setLoading(false);
             }
         };
 
